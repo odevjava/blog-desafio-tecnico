@@ -1,4 +1,4 @@
-# Blog com Integração DummyJSON (Desafio Laravel)
+# Blog com Integração DummyJSON - Desafio técnico
 
 Uma aplicação web de blog totalmente funcional construída com Laravel, que consome dados da API DummyJSON. O sistema permite visualizar posts, perfis de usuários, interagir com likes/dislikes e filtrar conteúdo de forma avançada. Este projeto foi desenvolvido como uma solução para o desafio técnico da XMX.
 
