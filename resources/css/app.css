@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.reaction-btn svg {
+    box-sizing: content-box; /* Previne que o "border-box" dos estilos base afete a forma do ícone */
+    display: inline-block;   /* Garante que o SVG se comporte como um elemento de bloco inline */
+    vertical-align: middle;
+}
