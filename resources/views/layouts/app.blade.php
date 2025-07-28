@@ -33,14 +33,12 @@
         @yield('featured')
 
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            <div class="@if(isset($hideSidebar) && $hideSidebar) lg:col-span-4 @else lg:col-span-3 @endif">
+            <div class="lg:col-span-3 order-2 lg:order-1">
                 @yield('content')
             </div>
-            @if(!isset($hideSidebar) || !$hideSidebar)
-                <aside class="lg:col-span-1">
-                    @yield('sidebar')
-                </aside>
-            @endif
+            <aside class="lg:col-span-1 order-1 lg:order-2">
+                @yield('sidebar')
+            </aside>
         </div>
     </main>
     

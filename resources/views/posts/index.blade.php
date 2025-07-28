@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('sidebar')
-    @include('layouts.sidebar')
+    @include('layouts.sidebar', ['extraClasses' => 'lg:mt-[68px]'])
 @endsection
 
 @section('featured')
