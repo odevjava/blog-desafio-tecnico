@@ -1,4 +1,5 @@
-<div class="bg-white p-6 rounded-lg shadow-md">
+<div class="bg-white p-6 rounded-lg shadow-md lg:mt-[68px]">
+
     <h3 class="font-bold text-lg mb-4 text-gray-800 border-b border-gray-200 pb-3">Filtrar e Ordenar</h3>
     
     <form action="{{ url()->current() }}" method="GET" class="space-y-4">

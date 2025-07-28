@@ -1,12 +1,23 @@
 @extends('layouts.app')
 
-@section('title', 'Todos os Posts')
+@section('featured')
+    {{-- Banner de Destaque com mais espaço abaixo --}}
+    <div class="rounded-lg overflow-hidden shadow-lg mb-12 h-96">
+        <img src="{{ asset('images/image1.png') }}"
+             alt="Banner Principal" 
+             class="w-full h-full object-cover">
+    </div>
+@endsection
 
 @section('sidebar')
     @include('layouts.sidebar')
 @endsection
 
 @section('content')
+    <div class="mb-8">
+        <h1 class="text-2xl lg:text-3xl font-bold text-gray-900">Todos os Posts</h1>
+    </div>
+
     <div class="space-y-6">
         @forelse ($posts as $post)
             <x-post-card :post="$post" />

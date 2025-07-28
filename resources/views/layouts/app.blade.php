@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Blog Laravel')</title>
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans">
 
@@ -19,7 +21,7 @@
             </a>
         </nav>
     </header>
-    {{-- FIM DA NOVA NAVBAR --}}
+    {{-- FIM DA NAVBAR --}}
 
     <main class="container mx-auto px-4 py-8">
         @hasSection('header')
@@ -29,6 +31,8 @@
                 <h1 class="text-3xl lg:text-4xl font-bold text-gray-900">@yield('title')</h1>
             </div>
         @endif
+
+        @yield('featured')
 
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
             <div class="@if(isset($hideSidebar) && $hideSidebar) lg:col-span-4 @else lg:col-span-3 @endif">
@@ -60,9 +64,6 @@
     <footer class="text-center text-sm text-gray-500 py-4 mt-8">
         Desenvolvido por Kevin Anderson &copy; {{ date('Y') }}. Todos os direitos reservados.
     </footer>
-
-    {{-- O script de reações foi REMOVIDO daqui --}}
-
     
     <script>
     document.addEventListener('DOMContentLoaded', function () {
