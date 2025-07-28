@@ -11,6 +11,13 @@ class PostController extends Controller
 { 
     public function index(Request $request)
     {
+        // Define os slides do carrossel.
+        $carouselSlides = [
+            ['id' => 1, 'title' => '', 'image' => asset('images/image1.png')],
+            ['id' => 2, 'title' => '', 'image' => asset('images/image2.png')],
+            ['id' => 3, 'title' => '', 'image' => asset('images/image3.png')],
+        ];
+
         // Define a chave de cache baseada na URL completa da requisição.
         $cacheKey = 'posts.index.' . md5($request->fullUrl());
 
@@ -37,7 +44,10 @@ class PostController extends Controller
         });
 
         // Limpa o cache de posts quando um novo post é criado ou atualizado.
-        return view('posts.index', compact('posts'));
+        return view('posts.index', [
+            'posts' => $posts,
+            'carouselSlides' => $carouselSlides,
+        ]);
     }
 
     public function show(Post $post)

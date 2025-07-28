@@ -1,16 +1,31 @@
 @extends('layouts.app')
 
-@section('featured')
-    {{-- Banner de Destaque com mais espaço abaixo --}}
-    <div class="rounded-lg overflow-hidden shadow-lg mb-12 h-96">
-        <img src="{{ asset('images/image1.png') }}"
-             alt="Banner Principal" 
-             class="w-full h-full object-cover">
-    </div>
-@endsection
-
 @section('sidebar')
     @include('layouts.sidebar')
+@endsection
+
+@section('featured')
+    <div class="relative w-full rounded-lg overflow-hidden shadow-lg mb-12 h-96" 
+         x-data="carousel()">
+
+        <template x-for="slide in slides" :key="slide.id">
+            <div x-show="activeSlide === slide.id" class="absolute inset-0 transition-opacity duration-[1500ms] ease-in-out">
+                <img :src="slide.image" class="absolute block w-full h-full object-cover" :alt="slide.title">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end p-6 md:p-10">
+                    <h2 class="text-white text-3xl md:text-4xl font-bold" x-text="slide.title"></h2>
+                </div>
+            </div>
+        </template>
+
+        <div class="absolute bottom-5 left-1/2 -translate-x-1/2 z-30 flex space-x-3">
+            <template x-for="slide in slides" :key="slide.id">
+                <button @click="activeSlide = slide.id" 
+                        class="w-2 h-2 rounded-full transition-colors"
+                        :class="{'bg-white': activeSlide === slide.id, 'bg-white/50 hover:bg-white/75': activeSlide !== slide.id}">
+                </button>
+            </template>
+        </div>
+    </div>
 @endsection
 
 @section('content')
@@ -32,3 +47,31 @@
         {{ $posts->links() }}
     </div>
 @endsection
+
+@push('scripts')
+<script>
+    function carousel() {
+        return {
+            activeSlide: 1,
+            slides: @json($carouselSlides),
+            
+            // Avança para o próximo slide
+            nextSlide() {
+                this.activeSlide = (this.activeSlide % this.slides.length) + 1;
+            },
+
+            // Volta para o slide anterior
+            prevSlide() {
+                this.activeSlide = this.activeSlide === 1 ? this.slides.length : this.activeSlide - 1;
+            },
+
+            // Inicia o autoplay
+            init() {
+                setInterval(() => {
+                    this.nextSlide();
+                }, 6000); // Muda a cada 6 segundos
+            }
+        }
+    }
+</script>
+@endpush
