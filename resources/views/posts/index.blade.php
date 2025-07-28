@@ -5,9 +5,7 @@
 @endsection
 
 @section('featured')
-    <div class="relative w-full rounded-lg overflow-hidden shadow-lg mb-12 h-96" 
-         x-data="carousel()">
-
+    <div class="relative w-full rounded-lg overflow-hidden shadow-lg mb-12 h-64 sm:h-80 lg:h-96" x-data="carousel()">
         <template x-for="slide in slides" :key="slide.id">
             <div x-show="activeSlide === slide.id" class="absolute inset-0 transition-opacity duration-[1500ms] ease-in-out">
                 <img :src="slide.image" class="absolute block w-full h-full object-cover" :alt="slide.title">

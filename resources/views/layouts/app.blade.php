@@ -14,7 +14,7 @@
     {{-- NAVBAR --}}
     <header class="bg-blue-600 shadow-md">
         <nav class="container mx-auto p-4 flex justify-between items-center">
-            <a href="{{ route('posts.index') }}" class="text-2xl font-bold text-white hover:text-blue-200 transition-colors duration-200">
+            <a href="{{ route('posts.index') }}" class="text-2xl md:text-2xl font-bold text-white hover:text-blue-200 transition-colors duration-200">
                 Meu.blog
             </a>
         </nav>

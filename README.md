@@ -96,6 +96,6 @@ A aplicação estará disponível em `http://127.0.0.1:8000`.
 
 ## 🎬 Link da Apresentação
 
-https://www.loom.com/share/87b7fd44cd0a4f40a1b3902c18a40084?sid=c3bcbd30-41c9-4aa2-b9a8-b66709fb14fd
+https://www.loom.com/share/8a0e4f010231450cb89a28bc95045aa0?sid=2a0d6a8f-d7f8-4724-8f73-292f6dbc4028
 
 ---
